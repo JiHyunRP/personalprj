@@ -1,0 +1,36 @@
+```yaml
+name: Compilar BiggerStacks 1.12.2
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar JDK 8 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      - name: Instalar Gradle 4.10.3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '4.10.3'
+
+      - name: Compilar el mod con ForgeGradle
+        run: gradle build --no-daemon --stacktrace
+
+      - name: Publicar el .jar como artefacto descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: BiggerStacks-1.12.2-Port-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
+```
