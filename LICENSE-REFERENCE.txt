@@ -1,0 +1,8 @@
+This source project is authored for this port and is not a binary redistribution of the modern Bigger Stacks jar.
+
+The modern Bigger Stacks project is published under LGPLv3. The StackUp reference project is also published under LGPLv3.
+
+For the complete license text, consult:
+https://www.gnu.org/licenses/lgpl-3.0.txt
+
+The source comments and documentation identify external projects used as behavioral/technical references.
